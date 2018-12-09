@@ -18,8 +18,8 @@ Route::view('/examples/plugin', 'examples.plugin');
 Route::view('/examples/blank', 'examples.blank');
 
 
+ 
+Route::view('/modello', 'examples.modello');
 
-Route::view('/examples/marca', 'examples.marca');
-Route::view('/examples/modello', 'examples.modello');
 
-  
+Route::resource('/marca', 'MarcaController');

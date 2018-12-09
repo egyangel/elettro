@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ config('app.locale') }}">
+<html lang="<?php echo e(config('app.locale')); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -11,24 +11,24 @@
         <meta name="robots" content="noindex, nofollow">
 
         <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
         <!-- Icons -->
-        <link rel="shortcut icon" href="{{ asset('media/favicons/favicon.png') }}">
-        <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
+        <link rel="shortcut icon" href="<?php echo e(asset('media/favicons/favicon.png')); ?>">
+        <link rel="icon" sizes="192x192" type="image/png" href="<?php echo e(asset('media/favicons/favicon-192x192.png')); ?>">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo e(asset('media/favicons/apple-touch-icon-180x180.png')); ?>">
 
         <!-- Fonts and Styles -->
-        @yield('css_before')
+        <?php echo $__env->yieldContent('css_before'); ?>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
-        <link rel="stylesheet" href="{{ mix('css/dashmix.css') }}">
+        <link rel="stylesheet" href="<?php echo e(mix('css/dashmix.css')); ?>">
 
         <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
-        <!-- <link rel="stylesheet" href="{{ mix('css/themes/xwork.css') }}"> -->
-        @yield('css_after')
+        <!-- <link rel="stylesheet" href="<?php echo e(mix('css/themes/xwork.css')); ?>"> -->
+        <?php echo $__env->yieldContent('css_after'); ?>
 
         <!-- Scripts -->
-        <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
+        <script>window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token(),]); ?>;</script>
     </head>
     <body>
         <!-- Page Container -->
@@ -83,12 +83,12 @@
             <!-- Side Overlay-->
             <aside id="side-overlay">
                 <!-- Side Header -->
-                <div class="bg-image" style="background-image: url('{{ asset('media/various/bg_side_overlay_header.jpg') }}');">
+                <div class="bg-image" style="background-image: url('<?php echo e(asset('media/various/bg_side_overlay_header.jpg')); ?>');">
                     <div class="bg-primary-op">
                         <div class="content-header">
                             <!-- User Avatar -->
                             <a class="img-link mr-1" href="javascript:void(0)">
-                                <img class="img-avatar img-avatar48" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
+                                <img class="img-avatar img-avatar48" src="<?php echo e(asset('media/avatars/avatar10.jpg')); ?>" alt="">
                             </a>
                             <!-- END User Avatar -->
 
@@ -157,26 +157,26 @@
                 <div class="content-side content-side-full">
                     <ul class="nav-main">
                         <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('dashboard') ? ' active' : '' }}" href="/dashboard">
+                            <a class="nav-main-link<?php echo e(request()->is('dashboard') ? ' active' : ''); ?>" href="/dashboard">
                                 <i class="nav-main-link-icon si si-cursor"></i>
                                 <span class="nav-main-link-name">Dashboard</span>
                                 <span class="nav-main-link-badge badge badge-pill badge-success">5</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Various</li>
-                        <li class="nav-main-item{{ request()->is('examples/*') ? ' open' : '' }}">
+                        <li class="nav-main-item<?php echo e(request()->is('examples/*') ? ' open' : ''); ?>">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                 <i class="nav-main-link-icon si si-bulb"></i>
                                 <span class="nav-main-link-name">Examples</span>
                             </a>
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link{{ request()->is('examples/plugin') ? ' active' : '' }}" href="/examples/plugin">
+                                    <a class="nav-main-link<?php echo e(request()->is('examples/plugin') ? ' active' : ''); ?>" href="/examples/plugin">
                                         <span class="nav-main-link-name">Plugin</span>
                                     </a>
                                 </li>
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link{{ request()->is('examples/blank') ? ' active' : '' }}" href="/examples/blank">
+                                    <a class="nav-main-link<?php echo e(request()->is('examples/blank') ? ' active' : ''); ?>" href="/examples/blank">
                                         <span class="nav-main-link-name">Blank</span>
                                     </a>
                                 </li>
@@ -207,13 +207,13 @@
 
                         <li class="nav-main-heading">ADD NEW</li>
                         <li class="nav-main-item open">
-                            <a class="nav-main-link{{ request()->is('/marca') ? ' active' : '' }}" href="/marca">
+                            <a class="nav-main-link<?php echo e(request()->is('/marca') ? ' active' : ''); ?>" href="/marca">
                                 <i class="nav-main-link-icon si si-globe"></i>
                                 <span class="nav-main-link-name">Marca</span>
                             </a>
                         </li>
                         <li class="nav-main-item open">
-                            <a class="nav-main-link{{ request()->is('modello') ? ' active' : '' }}" href="/modello">
+                            <a class="nav-main-link<?php echo e(request()->is('modello') ? ' active' : ''); ?>" href="/modello">
                                 <i class="nav-main-link-icon si si-globe"></i>
                                 <span class="nav-main-link-name">Modello</span>
                             </a>
@@ -439,7 +439,7 @@
 
             <!-- Main Container -->
             <main id="main-container">
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
             </main>
             <!-- END Main Container -->
 
@@ -461,11 +461,11 @@
         <!-- END Page Container -->
 
         <!-- Dashmix Core JS -->
-        <script src="{{ mix('js/dashmix.app.js') }}"></script>
+        <script src="<?php echo e(mix('js/dashmix.app.js')); ?>"></script>
 
         <!-- Laravel Scaffolding JS -->
-        <script src="{{ mix('js/laravel.app.js') }}"></script>
+        <script src="<?php echo e(mix('js/laravel.app.js')); ?>"></script>
 
-        @yield('js_after')
+        <?php echo $__env->yieldContent('js_after'); ?>
     </body>
 </html>
